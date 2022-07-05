@@ -7,8 +7,11 @@ namespace Task_12_1_5
     {
         static void Main(string[] args)
         {
-            Console.Write("Введите login: ");
-			var gotLogin = Console.ReadLine();
+            UserList users = new UserList();
+			users.User
+			Console.Write("Введите login: ");
+			var LogName = Console.ReadLine();
+
         }
 		static void ShowAds()
 		{
