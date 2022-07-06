@@ -8,7 +8,10 @@ namespace Task_12_1_5
         static void Main(string[] args)
         {
             UserList users = new UserList();
-			users.User
+			User person = new User {Login = "Bob", Name = "Robert", IsPremium = true };
+			users.AddUser(person);
+			users.AddUser();
+			users.IsUserInList("");
 			Console.Write("Введите login: ");
 			var LogName = Console.ReadLine();
 
