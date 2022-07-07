@@ -10,12 +10,43 @@ namespace Task_12_1_5
             UserList users = new UserList();
 			User person = new User {Login = "Bob", Name = "Robert", IsPremium = true };
 			users.AddUser(person);
-			users.AddUser();
-			users.IsUserInList("");
-			Console.Write("Введите login: ");
-			var LogName = Console.ReadLine();
-
+			users.AddUser(login: "Ivan1980", name: "Ivan", premium: false);
+			users.AddUser(login: "Fox", name: "Laura", premium: true);
+			users.AddUser(login: "DG", name: "dolce", premium: true);
+			string input;
+			do
+			{
+				Console.Write("Input login or leave blanc and press Enter: ");
+				input = Console.ReadLine();
+				if (users.IsUserInList(input))
+				{
+					if (users.IsUserPremium(input))
+					{
+						Console.WriteLine($"Well done. Get in. Go on.{Environment.NewLine}Wellcome!");
+						input = string.Empty;
+                    }
+                    else
+                    {
+						ShowAds();
+						input = string.Empty;
+					}
+				}
+				else
+				{
+					if (!string.IsNullOrEmpty(input))
+                    {
+						Console.WriteLine("Register new login.");
+						Console.Write("Tipe new user's name: ");
+						string newUserName = Console.ReadLine();
+						Console.Write("Tipe new user's password: ");
+						string newUserPassword = Console.ReadLine();
+						users.AddUser(login: input, name: newUserName, premium: false);
+                    }
+				}
+			}
+			while (!string.IsNullOrEmpty( input ));
         }
+		
 		static void ShowAds()
 		{
 			Console.WriteLine("Посетите наш новый сайт с бесплатными играми free.games.for.a.fool.com");

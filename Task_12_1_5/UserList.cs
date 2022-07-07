@@ -15,7 +15,7 @@ namespace Task_12_1_5
         {
             return Users.Exists(l => (l.Login == login));
         }
-        public void AddUser(string login, string name, string password, bool premium)
+        public void AddUser(string login, string name, bool premium = false)
         {
             if (IsUserInList(login))
             {
